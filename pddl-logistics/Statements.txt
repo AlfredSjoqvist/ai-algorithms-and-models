@@ -1,0 +1,67 @@
+// Statement 1 //
+
+It seems that FF tries to satisfy its 
+goals more greedliy than IPP. FF unloads packet1
+before it loads packet2 while IPP does the inverse.
+Also IPP seems to treat the loading and unloading 
+of packet1 at the same location as being possible
+to do simultaneously while FF doesnt. It is worth to
+keep in mind that IPP plans in time steps, i.e. one step
+can be many actions, while one step in FF equals one action.
+
+// Statement 2 //
+The differnce between IPP and FF in this scenario is 
+that IPP utilizes both Scooty-puff and truck1 to solve
+the deliver the two packages in parallel. In contrast 
+FF only utilizes truck1 for a sequential solution to
+the delivery-problem. The differnce between the planners solution-
+strategies now becomes more apparent. However the sequential solution
+that FF uses in this case requires less steps to be completed than IPP.
+With regards to time-steps IPP performs better.
+
+
+IPP:
+    time step    0: DRIVE SCOOTY-PUFF PLANEX-BUILDING OFFICE1 CITY1
+                    LOAD PACKET2 TRUCK1 OFFICE2
+    time step    1: DRIVE TRUCK1 OFFICE2 OFFICE1 CITY1
+                    LOAD PACKET1 SCOOTY-PUFF OFFICE1
+    time step    2: DRIVE SCOOTY-PUFF OFFICE1 OFFICE2 CITY1
+                    UNLOAD PACKET2 TRUCK1 OFFICE1
+    time step    3: UNLOAD PACKET1 SCOOTY-PUFF OFFICE2
+
+FF:
+    step    0: LOAD PACKET2 TRUCK1 OFFICE2
+            1: DRIVE TRUCK1 OFFICE2 OFFICE1 CITY1
+            2: LOAD PACKET1 TRUCK1 OFFICE1
+            3: UNLOAD PACKET2 TRUCK1 OFFICE1
+            4: DRIVE TRUCK1 OFFICE1 OFFICE2 CITY1
+            5: UNLOAD PACKET1 TRUCK1 OFFICE2
+
+
+// Statement 3 //
+
+With these new constraints the differnce in optimality between the IPP planner 
+and FF planner becomes more apparent. The solution brought by IPP only requires
+one additional step to reach the goal state. In contrast FF now requires 2 additional
+steps compared to before. It follows that utilizing parallel deliveries as the ammount
+of deliveries and constraints increases, leads to a lesser ammount of necessary steps.
+
+IPP:
+    time step    0: DRIVE TRUCK1 OFFICE2 OFFICE1 CITY1
+                    DRIVE SCOOTY-PUFF PLANEX-BUILDING OFFICE2 CITY1
+    time step    1: LOAD_MOPED PACKET2 SCOOTY-PUFF OFFICE2
+                    LOAD_TRUCK PACKET1 TRUCK1 OFFICE1
+    time step    2: DRIVE TRUCK1 OFFICE1 OFFICE2 CITY1
+                    DRIVE SCOOTY-PUFF OFFICE2 OFFICE1 CITY1
+    time step    3: UNLOAD PACKET2 SCOOTY-PUFF OFFICE1
+                    UNLOAD PACKET1 TRUCK1 OFFICE2
+
+FF:
+    step    0: DRIVE SCOOTY-PUFF PLANEX-BUILDING OFFICE2 CITY1
+            1: LOAD_MOPED PACKET2 SCOOTY-PUFF OFFICE2
+            2: DRIVE SCOOTY-PUFF OFFICE2 OFFICE1 CITY1
+            3: UNLOAD PACKET2 SCOOTY-PUFF OFFICE1
+            4: DRIVE TRUCK1 OFFICE2 OFFICE1 CITY1
+            5: LOAD_TRUCK PACKET1 TRUCK1 OFFICE1
+            6: DRIVE TRUCK1 OFFICE1 OFFICE2 CITY1
+            7: UNLOAD PACKET1 TRUCK1 OFFICE2

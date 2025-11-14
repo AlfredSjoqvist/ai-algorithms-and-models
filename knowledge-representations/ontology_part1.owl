@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#"
+     xml:base="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:untitled-ontology-2="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#courseTakenBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#courseTakenBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#courseTakenBy"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#Course"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#takesCourse -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#takesCourse">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#Person"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#Course"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#hasFirstName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#hasFirstName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#Course -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#Course">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#Person -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#Person"/>
+    
+
+
+    <!-- http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#Student -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#Student">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#takesCourse"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#Course"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#John -->
+
+    <owl:Thing rdf:about="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#John">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <takesCourse rdf:resource="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#artificialIntelligence"/>
+        <hasFirstName>John</hasFirstName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#Judith -->
+
+    <owl:Thing rdf:about="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#Judith">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <takesCourse rdf:resource="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#discreteMathematics"/>
+        <hasFirstName>Judith</hasFirstName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#Mary -->
+
+    <owl:Thing rdf:about="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#Mary">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <hasFirstName>Mary</hasFirstName>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#artificialIntelligence -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#artificialIntelligence">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#Course"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#discreteMathematics -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#discreteMathematics">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#Course"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#objectOrientedProgramming -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#objectOrientedProgramming">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alfsj019/ontologies/2022/10/untitled-ontology-2#Course"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+
